@@ -24,28 +24,28 @@ public class AppTest {
         return fxmlLoader.load();
     }
 
-	@Start
-	private void start(Stage stage) throws IOException {
-		Scene scene = new Scene(loadFXML("primary"), 640, 480);
+    @Start
+    private void start(Stage stage) throws IOException {
+        Scene scene = new Scene(loadFXML("primary"), 640, 480);
         stage.setScene(scene);
         stage.show();
-	}
-	
-	@Test
-	void test_label_is_empty(FxRobot robot) {
-		FxAssert.verifyThat("#textField", TextInputControlMatchers.hasText(""));
-	}
-	
-	@Test
-	void test_button_test(FxRobot robot) {
-		FxAssert.verifyThat(".button", LabeledMatchers.hasText("Say Hello"));
-	}
-	
-	@Test
-	void test_button_click(FxRobot robot) {
-		robot.clickOn(".button");
-		
-		FxAssert.verifyThat("#textField", TextInputControlMatchers.hasText("Hello World"));
-	}
+    }
+
+    @Test
+    void test_label_is_empty(FxRobot robot) {
+        FxAssert.verifyThat("#textField", TextInputControlMatchers.hasText(""));
+    }
+
+    @Test
+    void test_button_test(FxRobot robot) {
+        FxAssert.verifyThat(".button", LabeledMatchers.hasText("Say Hello"));
+    }
+
+    @Test
+    void test_button_click(FxRobot robot) {
+        robot.clickOn(".button");
+
+        FxAssert.verifyThat("#textField", TextInputControlMatchers.hasText("Hello World"));
+    }
 
 }
